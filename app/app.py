@@ -11,7 +11,7 @@ def home():
     <h1>DevOps Project</h1>
     <p>Application is running!</p>
     <p>Hostname: {hostname}</p>
-    <p>Version: 1.1</p>
+    <p>Version: 1.2</p>
     """
 
 if __name__ == "__main__":
