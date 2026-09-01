@@ -15,5 +15,5 @@ jobs:
           cd /opt/devops-project
           git pull --ff-only origin main
           sudo systemctl restart devops-app
-          sudo systemctl is-active --quiet devops-app
+          systemctl is-active --quiet devops-app
           echo "Deployment successful!"
