@@ -1,0 +1,19 @@
+name: Deploy to CentOS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Deploy application
+        run: |
+          cd /opt/devops-project
+          git pull --ff-only origin main
+          sudo systemctl restart devops-app
+          sudo systemctl is-active --quiet devops-app
+          echo "Deployment successful!"
