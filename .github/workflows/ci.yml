@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   push:
@@ -27,3 +27,17 @@ jobs:
 
       - name: Run tests
         run: python -m pytest
+
+  deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: self-hosted
+
+    steps:
+      - name: Deploy application
+        run: |
+          cd /opt/devops-project
+          git pull --ff-only origin main
+          sudo systemctl restart devops-app
+          systemctl is-active --quiet devops-app
+          echo "Deployment successful!"
