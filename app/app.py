@@ -11,7 +11,7 @@ def home():
     <h1>DevOps Project</h1>
     <p>Application is running!</p>
     <p>Hostname: {hostname}</p>
-    <p>Version: 1.4</p>
+    <p>Version: 1.5</p>
     """
 
 @app.route("/health")
