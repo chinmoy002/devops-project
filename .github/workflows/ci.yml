@@ -40,5 +40,15 @@ jobs:
           git pull --ff-only origin main
           sudo systemctl restart devops-app
           systemctl is-active --quiet devops-app
-          curl --fail http://127.0.0.1:5000/health
+
+          for i in {1..15}; do
+            if curl --fail --silent http://127.0.0.1:5000/health; then
+              echo "Health check passed!"
+              exit 0
+            fi
+
+            echo "Application not ready yet. Retrying..."
+            sleep 2
+          done
+
           echo "Deployment successful!"
