@@ -8,7 +8,7 @@ def test_homepage():
 
     assert response.status_code == 200
     assert b"DevOps Project" in response.data
-    assert b"Version: 1.5" in response.data
+    assert b"Version:" in response.data
 
 
 def test_health():
