@@ -40,4 +40,5 @@ jobs:
           git pull --ff-only origin main
           sudo systemctl restart devops-app
           systemctl is-active --quiet devops-app
+          curl --fail http://127.0.0.1:5000/health
           echo "Deployment successful!"
