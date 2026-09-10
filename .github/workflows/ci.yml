@@ -10,6 +10,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,6 +27,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
+
+      - name: Verify secret is available
+        run: |
+          if [ -n "$DEMO_SECRET" ]; then
+            echo "Secret is available!"
+          else
+            echo "Secret is missing!"
+            exit 1
+          fi
 
       - name: Run tests
         run: python -m pytest
