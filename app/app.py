@@ -1,5 +1,6 @@
 from flask import Flask
 import socket
+import os
 
 app = Flask(__name__)
 
@@ -11,7 +12,7 @@ def home():
     <h1>DevOps Project</h1>
     <p>Application is running!</p>
     <p>Hostname: {hostname}</p>
-    <p>Version: 1.5</p>
+    <p>Version: {os.getenv("APP_VERSION","unknown")}</p>
     """
 
 @app.route("/health")
