@@ -9,7 +9,7 @@ def home():
     hostname = socket.gethostname()
 
     return f"""
-    <h1>DevOps Project</h1>
+    <h1>DevOps Project - CI/CD</h1>
     <p>Application is running!</p>
     <p>Hostname: {hostname}</p>
     <p>Version: {os.getenv("APP_VERSION","unknown")}</p>
