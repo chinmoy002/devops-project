@@ -28,7 +28,7 @@ jobs:
       - name: Run tests
         run: python -m pytest
 
-    deploy:
+  deploy:
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: self-hosted
