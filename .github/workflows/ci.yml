@@ -43,7 +43,6 @@ jobs:
           docker build -t devops-flask-app:latest .
 
           sudo systemctl stop devops-app
-          sudo systemctl disable devops-app
 
           docker rm -f devops-flask-prod 2>/dev/null || true
 
