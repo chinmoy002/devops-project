@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    container_name: devops-flask-compose
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
