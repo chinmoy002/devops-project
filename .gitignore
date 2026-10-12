@@ -2,3 +2,10 @@ venv/
 __pycache__/
 *.pyc
 .env
+
+# Terraform local files
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
